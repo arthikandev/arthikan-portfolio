@@ -1,6 +1,6 @@
 # Arthikan Vettivel — Portfolio
 
-A static personal portfolio focused on marketing, design, web development, software engineering, and the FYP podcast brand.
+A static personal portfolio focused on marketing, design, web development, and software engineering.
 
 ## Run locally on macOS
 

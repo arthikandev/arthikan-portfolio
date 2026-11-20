@@ -121,8 +121,7 @@ document.addEventListener('pointermove', event => {
 }, {passive:true});
 document.documentElement.addEventListener('pointerleave', () => { pointerHalo.style.opacity='0'; });
 const projects = {
-  synergy: {title:'Helping students see what’s next.',category:'Marketing Executive · Synergy Consultant',description:'My role connects overseas education opportunities with prospective students through clear, consistent brand communication in English and Tamil.',points:['Plan and manage social content around universities, programmes, and student success stories.','Design branded posters, banners, digital creatives, and event materials.','Write captions, promotional copy, and video scripts; edit short-form social content.','Support webinars, open days, student outreach, and institutional partnership promotions.'],note:'Role scope · Jaffna, Sri Lanka · March 2026–present'},
-  fyp: {title:'Find Your Potential.',category:'FYP · Personal podcast brand',image:'/assets/fyp-poster.png',logo:'/assets/fyp-logo.png',alt:'FYP launch poster in black, white, and lime green, announcing Find Your Potential',description:'FYP is a personal podcast brand created to explore motivation, personal growth, and meaningful life topics. Through concise English solo episodes, it encourages people to question limiting beliefs, understand their journey, and unlock their true potential.',points:['A visual identity built around a distinctive FYP wordmark and a black, white, and lime palette.','Solo English episodes focused on motivation, personal growth, and meaningful life topics.','Brand artwork and a launch poster that carry the same visual language across social media.'],note:'Personal project · Podcast & brand identity · Website coming soon'}
+  synergy: {title:'Helping students see what’s next.',category:'Marketing Executive · Synergy Consultant',description:'My role connects overseas education opportunities with prospective students through clear, consistent brand communication in English and Tamil.',points:['Plan and manage social content around universities, programmes, and student success stories.','Design branded posters, banners, digital creatives, and event materials.','Write captions, promotional copy, and video scripts; edit short-form social content.','Support webinars, open days, student outreach, and institutional partnership promotions.'],note:'Role scope · Jaffna, Sri Lanka · March 2026–present'}
 };
 const dialog = document.querySelector('#project-dialog');
 let dialogTrigger = null;
@@ -130,13 +129,11 @@ document.querySelectorAll('[data-project]').forEach(button => button.addEventLis
   const project = projects[button.dataset.project];
   if (!project) return;
   dialogTrigger = button;
-  const isFyp = button.dataset.project === 'fyp';
-  dialog.classList.toggle('fyp-dialog', isFyp);
-  document.querySelector('.dialog-website').hidden = !isFyp;
-  document.querySelector('.dialog-contact').hidden = isFyp;
   const brandLogo = document.querySelector('#dialog-brand-logo');
-  brandLogo.hidden = !project.logo;
-  if (project.logo) brandLogo.src = project.logo; else brandLogo.removeAttribute('src');
+  if (brandLogo) {
+    brandLogo.hidden = !project.logo;
+    if (project.logo) brandLogo.src = project.logo; else brandLogo.removeAttribute('src');
+  }
   document.querySelector('#dialog-title').textContent=project.title;
   document.querySelector('#dialog-category').textContent=project.category;
   document.querySelector('#dialog-description').textContent=project.description;
